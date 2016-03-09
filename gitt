@@ -48,6 +48,7 @@ case $2 in
   subcommand="${subcommand}_help"
   ;;
 esac
+echo $subcommand
 case $subcommand in
   "" | "-h" | "--help")
   gitt_help
