@@ -11,14 +11,21 @@ function gitt_help(){
   echo ""
 }
 
+function gitt_shove_help(){
+  echo "USAGE: gitt shove [commit message]"
+  echo "- Adds all changes, commits, pulls, and pushes"
+  echo "- if no commit message is supplied 'updated' will be used"
+  exit
+}
+
 function gitt_shove(){
   MESSAGE=$1
-  if [ $# -lt 3 ]; then
+  if [ $# -lt 1 ]; then
     MESSAGE="updated"
   fi
-  if [ $# -gt 3 ]; then
+  if [ $# -gt 1 ]; then
     echo "ERROR: Too many arguments"
-    echo "USAGE: gitt shove [commit message]"
+    gitt_shove_help
     exit
   fi
   git pull
@@ -36,6 +43,10 @@ function gitt_shove(){
   git commit
 }
 
+if [ $2 in "-h" | "-help" ]
+then
+  subcommand="${subcommand}_help"
+fi
 case $subcommand in
   "" | "-h" | "--help")
   gitt_help
