@@ -2,22 +2,25 @@
 
 if [ $# -eq 0 ]
 then
-  ~/.bin/.subl
+  /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl
 elif [ $# -eq 1 ]
 then
   if [ -f $1 ]
   then
-    ~/.bin/.subl $1
+    /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl $1
   elif [ -d $1 ]
     then
-    echo "$1 is a directory"
+    echo "ERROR: Failed to open Sublime. $1 is a directory"
     echo "Usage: subl [filename]"
+    exit 1
   else
-    echo "$1 does not exist"
+    echo "ERROR: Failed to open Sublime. $1 does not exist"
     echo "Usage: subl [filename]"
+    exit 1
   fi
 else
   echo "ERROR: Failed to open Sublime. Too many arguments"
   echo "USAGE: subl [filename]"
-  exit 1 # terminate and indicate error
+  exit 1
 fi
+exit 0
