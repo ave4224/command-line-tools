@@ -42,7 +42,7 @@ function gitt_shove(){
   git add .
   git commit
 }
-
+echo $2
 case $2 in
   "-h" | "-help")
   echo "${subcommand}_help"
