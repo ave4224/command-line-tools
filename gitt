@@ -43,10 +43,11 @@ function gitt_shove(){
   git commit
 }
 
-if [ $2 in "-h" | "-help" ]
-then
+case $2 in
+  "-h" | "-help")
   subcommand="${subcommand}_help"
-fi
+  ;;
+esac
 case $subcommand in
   "" | "-h" | "--help")
   gitt_help
