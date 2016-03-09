@@ -15,6 +15,7 @@ function gitt_shove_help(){
   echo "USAGE: gitt shove [commit message]"
   echo "- Adds all changes, commits, pulls, and pushes"
   echo "- if no commit message is supplied 'updated' will be used"
+  echo ""
   exit
 }
 
@@ -42,14 +43,11 @@ function gitt_shove(){
   git add .
   git commit
 }
-echo $2
 case $2 in
-  "-h" | "-help")
-  echo "${subcommand}_help"
-  let subcommand="${subcommand}_help"
+  "-h" | "--help")
+  subcommand="${subcommand}_help"
   ;;
 esac
-echo $subcommand
 case $subcommand in
   "" | "-h" | "--help")
   gitt_help
