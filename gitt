@@ -45,7 +45,7 @@ function gitt_shove(){
 
 case $2 in
   "-h" | "-help")
-  subcommand="${subcommand}_help"
+  let subcommand="${subcommand}_help"
   ;;
 esac
 echo $subcommand
