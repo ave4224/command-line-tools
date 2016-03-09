@@ -1,0 +1,6 @@
+VARIABLES=""
+for var in "$@"
+do
+	VARIABLES="$VARIABLES $var"
+done
+git clone $VARIABLES
