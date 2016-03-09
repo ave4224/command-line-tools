@@ -1,0 +1,2 @@
+#!/bin/bash
+ruby -e "print('$1'*$2)" | pbcopy
