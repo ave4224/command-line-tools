@@ -1,10 +1,9 @@
 #!/bin/bash
 
 #Layout credit to github.com/stephen304/dotfiles
-subcommand=$1
 
 function gitt_help(){
-  echo "Usage: gitt <subcommand> [arguments]\n"
+  echo "Usage: gitt <subcommand> [arguments]"
   echo "Subcommands:"
   echo "    shove [commit message] "
   echo "    - Adds all changes, commits, pulls, and pushes"
@@ -66,6 +65,26 @@ function gitt_shove(){
   git add .
   git commit
 }
+
+function swapaliases(){
+  echo $1
+  case $1 in
+    "" | "-h" | "--help")
+    subcommand="help"
+    echo help
+    ;;
+    "s")
+    echo s
+    subcommand="shove"
+    ;;
+    *)
+    echo star
+    subcommand=$1
+    ;;
+  esac
+}
+
+swapaliases $@
 case $2 in
   "-h" | "--help")
   printusage
@@ -75,6 +94,7 @@ esac
 case $subcommand in
   "" | "-h" | "--help")
   gitt_help
+  exit 0
   ;;
   *)
   shift
