@@ -13,23 +13,25 @@ function gitt_help(){
   echo ""
 }
 
-function gitt_update_help(){
-  echo "USAGE: update <directory> "
-  echo "    - updates a directory's repository"
+function printusage(){
+  gitt_${subcommand}_help
   echo ""
 }
 
-function gitt_update(){
-  if [$# -eq 1]
+function gitt_renew_help(){
+  echo "USAGE: renew <directory> "
+  echo "    - silently pulls a directory's repository"
+}
+
+function gitt_renew(){
+  if [ $# -eq 1 ]
   then
-    olddir=`pwd`
     cd $1
-    git pull
-    cd $olddir
+    git pull > /dev/null &
     exit 0
   else
     echo "ERROR: Bad arguments"
-    gitt_update_help
+    printusage
     exit 1
   fi
 }
@@ -38,7 +40,6 @@ function gitt_shove_help(){
   echo "USAGE: gitt shove [commit message]"
   echo "- Adds all changes, commits, pulls, and pushes"
   echo "- if no commit message is supplied 'updated' will be used"
-  echo ""
 }
 
 function gitt_shove(){
@@ -48,7 +49,7 @@ function gitt_shove(){
   fi
   if [ $# -gt 1 ]; then
     echo "ERROR: Too many arguments"
-    gitt_shove_help
+    printusage
     exit 1
   fi
   git pull
@@ -67,7 +68,8 @@ function gitt_shove(){
 }
 case $2 in
   "-h" | "--help")
-  subcommand="${subcommand}_help"
+  printusage
+  exit 0
   ;;
 esac
 case $subcommand in
