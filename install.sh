@@ -24,7 +24,13 @@ else
   echo "export PATH=\"$relative:\$PATH\"" >> ~/.bash_profile
   echo "Path added to ~/.bash_profile"
 fi
-if cat ~/.bash_profile | egrep -q
+if cat ~/.bash_profile | egrep -q "gitt renew $relative|gitt renew $directory"
+then
+  echo "You've done this before"
+else
+  echo "gitt renew $relative" >> ~/.bash_profile
+
+cd $directory
 git init .
 git remote add -t \* -f origin https://github.com/ave4224/command-line-tools.git
 git checkout master
