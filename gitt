@@ -8,7 +8,30 @@ function gitt_help(){
   echo "Subcommands:"
   echo "    shove [commit message] "
   echo "    - Adds all changes, commits, pulls, and pushes"
+  echo "    update <directory> "
+  echo "    - updates a directory's repository"
   echo ""
+}
+
+function gitt_update_help(){
+  echo "USAGE: update <directory> "
+  echo "    - updates a directory's repository"
+  echo ""
+}
+
+function gitt_update(){
+  if [$# -eq 1]
+  then
+    olddir=`pwd`
+    cd $1
+    git pull
+    cd $olddir
+    exit 0
+  else
+    echo "ERROR: Bad arguments"
+    gitt_update_help
+    exit 1
+  fi
 }
 
 function gitt_shove_help(){
@@ -16,7 +39,6 @@ function gitt_shove_help(){
   echo "- Adds all changes, commits, pulls, and pushes"
   echo "- if no commit message is supplied 'updated' will be used"
   echo ""
-  exit
 }
 
 function gitt_shove(){
@@ -27,7 +49,7 @@ function gitt_shove(){
   if [ $# -gt 1 ]; then
     echo "ERROR: Too many arguments"
     gitt_shove_help
-    exit
+    exit 1
   fi
   git pull
   find . -name .DS_Store -print0 | xargs -0 rm -f --
