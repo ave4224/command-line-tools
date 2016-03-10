@@ -21,4 +21,4 @@ Runs a git pull in any folder on the system very silently
 ## Show
 Ever get tired of typing `ls -alt` all the time? Now you can just use `show` instead!
 ## `wgit`
-Think `wget` but for `git`! It's pretty much just `git clone`.
+Think `wget` but for `git`... it's pretty much just `git clone`.
