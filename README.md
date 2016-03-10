@@ -7,14 +7,14 @@ A variety of command line tools
 ## Copy Text
 `copytext` is a simple command that puts on your clipboard any number of copies of any text
 ## Git Tools
-`gitt` adds several usefull shortcuts and tools to speed things along
-#### `gitt shove`
+`gt` adds several usefull shortcuts and tools to speed things along
+#### `gt shove`
 Combines the process of `git add`, `git commit`, `git pull`, and `git push` into one command.
-#### `gitt renew`
+#### `gt renew`
 Runs a git pull in any folder on the system very silently
 #### Aliases
-  - `gt` -> `gitt`
-  - `gitt s` -> `gitt shove`
+  - `gt` <-> `gitt`
+  - `gt s` <-> `gt shove`
 
 ## Sublime Text
 `subl` builds on the command supplied by sublime
