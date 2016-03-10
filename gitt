@@ -67,24 +67,18 @@ function gitt_shove(){
 }
 
 function swapaliases(){
-  echo $1
+  subcommand=$1
   case $1 in
     "" | "-h" | "--help")
     subcommand="help"
-    echo help
     ;;
     "s")
-    echo s
     subcommand="shove"
-    ;;
-    *)
-    echo star
-    subcommand=$1
     ;;
   esac
 }
 
-swapaliases $@
+swapaliases $1
 case $2 in
   "-h" | "--help")
   printusage
