@@ -2,7 +2,7 @@
 A variety of command line tools
 
 ## Installer
-`install.sh` autoinstalls these tools into a folder. With no arguments it uses the working directory as the install location. Alternatively you can give it a direcory to use: `install.sh ~/.bin/`.
+`install.sh` autoinstalls these tools into a folder. With no arguments it uses the working directory as the install location. Alternatively you can give it a direcory to use: `install.sh ~/.bin/`. For a quick install cd to the directory you want do use and run `curl https://goo.gl/vZTc90 | bash`.
 
 ## Copy Text
 `copytext` is a simple command that puts on your clipboard any number of copies of any text
