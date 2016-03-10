@@ -26,7 +26,7 @@ function gitt_renew(){
   if [ $# -eq 1 ]
   then
     cd $1
-    git pull > /dev/null > /dev/null &
+    git pull --quiet &
     exit 0
   else
     echo "ERROR: Bad arguments"
